@@ -15,10 +15,10 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier'],
+  plugins: ['react'],
   rules: {
     // 'prettier/prettier': ['error', { singleQuote: true }],
-    'react/react-in-jsx-scope': 0,
+    // 'react/react-in-jsx-scope': 0,
   },
   // 'prettier/prettier': [
   //   'error',
