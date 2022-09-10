@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 const nevbar = {
   border: "1px solid gray",
   backgroundColor: "blue",
   alignItems: "space",
   height: "50px",
-  justifyContent: "start",
+  justifyContent: "space-evenly",
   placeItems: "center",
   display: "flex",
 };
@@ -17,14 +18,17 @@ const link = {
   textDecoration: "none",
 };
 
-function Navbar() {
+function Home() {
   return (
     <div id="navigation" style={nevbar}>
-      <Link style={link} to="/home">
-        Logo
+      <Link style={link} to="/page1">
+        Page 1
+      </Link>
+      <Link style={link} to="/page2">
+        Page 2
       </Link>
     </div>
   );
 }
 
-export default Navbar;
+export default Home;

@@ -2,6 +2,7 @@ import React from "react";
 import { StrictMode } from "react";
 import { Route, BrowserRouter as Router, Routes, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Page1 from "./pages/Page1";
@@ -21,6 +22,7 @@ function App() {
     <StrictMode>
       <Router>
         <Routes>
+          <Route path="/home" element={<Home />} />
           <Route path="/" element={<LayoutWithNavbar />}>
             <Route path="/page1" element={<Page1 />} />
             <Route path="/page2" element={<Page2 />} />
