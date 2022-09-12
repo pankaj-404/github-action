@@ -20,7 +20,7 @@ const link = {
 function Navbar() {
   return (
     <div id="navigation" style={nevbar}>
-      <Link style={link} to="/github-action/home">
+      <Link style={link} to="/">
         Logo
       </Link>
     </div>

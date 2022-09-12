@@ -21,10 +21,10 @@ const link = {
 function Home() {
   return (
     <div id="navigation" style={nevbar}>
-      <Link style={link} to="/github-action/page1">
+      <Link style={link} to="/page1">
         Page 1
       </Link>
-      <Link style={link} to="/github-action/page2">
+      <Link style={link} to="/page2">
         Page 2
       </Link>
     </div>
