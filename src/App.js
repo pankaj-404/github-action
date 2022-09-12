@@ -21,15 +21,13 @@ function App() {
   return (
     <StrictMode>
       <Routes>
-        {/* <Route path="/github-action/" element={<LayoutWithNavbar />}>
-          <Route path="/github-action/page1" element={<Page1 />} />
-          <Route path="/github-action/page2" element={<Page2 />} />
-        </Route> */}
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/page1" element={<Page1 />} />
-        <Route path="/page2" element={<Page2 />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<LayoutWithNavbar />}>
+          <Route path="/page1" element={<Page1 />} />
+          <Route path="/page2" element={<Page2 />} />
+        </Route>
         <Route path="/*" element={<NotFound />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </StrictMode>
   );
