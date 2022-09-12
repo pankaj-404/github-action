@@ -1,6 +1,6 @@
 import React from "react";
 import { StrictMode } from "react";
-import { Route, BrowserRouter as Router, Routes, Outlet } from "react-router-dom";
+import { Route, Routes, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -21,11 +21,11 @@ function App() {
   return (
     <StrictMode>
       <Routes>
-        <Route path="/home" element={<Home />} />
         <Route path="/" element={<LayoutWithNavbar />}>
           <Route path="/page1" element={<Page1 />} />
           <Route path="/page2" element={<Page2 />} />
         </Route>
+        <Route path="/home" element={<Home />} />
         <Route path="/*" element={<NotFound />} />
         <Route path="/login" element={<Login />} />
       </Routes>
