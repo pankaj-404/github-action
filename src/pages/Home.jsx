@@ -1,32 +1,38 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Button } from 'primereact/button';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './Home.css';
 
-const nevbar = {
-  border: "1px solid gray",
-  backgroundColor: "blue",
-  alignItems: "space",
-  height: "50px",
-  justifyContent: "space-evenly",
-  placeItems: "center",
-  display: "flex",
-};
-const link = {
-  fontSize: "larger",
-  fontWeight: "bold",
-  color: "white",
-  textTransform: "uppercase",
-  textDecoration: "none",
-};
+function Home(props) {
+  const lendingPageMenuItems = [
+    {
+      label: 'Duplicate Inventory Reduction',
+      to: '/duplicateinventoryreduction',
+    },
+    {
+      label: 'AI Challenger',
+      to: '/aichallenger',
+    },
+    {
+      label: 'Vendor Data Enrichment',
+      to: '/vendordataenrichment',
+    },
+  ];
 
-function Home() {
   return (
-    <div id="navigation" style={nevbar}>
-      <Link style={link} to="/page1">
-        Page 1
-      </Link>
-      <Link style={link} to="/page2">
-        Page 2
-      </Link>
+    <div style={{ display: 'flex', height: window.innerHeight }}>
+      <div className="s1"></div>
+      <div className="home-right">
+        {lendingPageMenuItems.map(menu => (
+          <Link to={menu.to} key={menu.to}>
+            <Button
+              className="previousbutton my-3 homeButtons"
+              label={menu.label}
+              style={{ width: '100%' }}
+            />
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

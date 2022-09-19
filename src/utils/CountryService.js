@@ -1,11 +1,8 @@
 export class CountryService {
   getCountries() {
-    console.log("service called");
-    return (
-      fetch("github-action/public/assets/data/countries.json")
-        .then((res) => console.log("res==>", res.data))
-        // .then((d) => d.data)
-        .catch((e) => console.log("error==>", e))
-    );
+    return fetch(process.env.PUBLIC_URL + '/assets/data/countries.json')
+      .then(res => res.json())
+      .then(d => d.data)
+      .catch(e => console.error('error==>', e));
   }
 }

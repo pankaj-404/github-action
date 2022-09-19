@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Route, Routes, Outlet } from 'react-router-dom'; //Outlet,
+import { useState, useEffect } from 'react';
+import { Route, Routes, Outlet } from 'react-router-dom';
 import Layout from './components/Layout';
 import Unauthorized from './components/Unauthorized';
 import Navbar from './components/Navbar';
@@ -8,8 +8,9 @@ import RequireAuth from './components/RequiredAuth';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
-import Page1 from './pages/Page1';
-import Page2 from './pages/Page2';
+import AIChallenger from './pages/AIChallenger';
+import VendorDataEnrichment from './pages/VendorDataEnrichment';
+import DuplicateInventoryReduction from './pages/DuplicateInventoryReduction';
 
 function App() {
   const [auth, setAuth] = useState(null);
@@ -44,7 +45,7 @@ function App() {
         {/* public routes */}
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
-        {/* <Route path="linkpage" element={<LinkPage />} /> */}
+        {/* <Route path='linkpage' element={<LinkPage />} /> */}
         <Route path="unauthorized" element={<Unauthorized />} />
 
         {/* we want to protect these routes */}
@@ -54,8 +55,15 @@ function App() {
 
         <Route element={<RequireAuth allowedRoles={[ROLES.Buyer]} />}>
           <Route element={<LayoutWithNavbar />}>
-            <Route path="Page1" element={<Page1 />} />
-            <Route path="Page2" element={<Page2 />} />
+            <Route path="aichallenger" element={<AIChallenger />} />
+            <Route
+              path="vendordataenrichment"
+              element={<VendorDataEnrichment />}
+            />
+            <Route
+              path="duplicateinventoryreduction"
+              element={<DuplicateInventoryReduction />}
+            />
           </Route>
         </Route>
 

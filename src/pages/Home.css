@@ -1,0 +1,28 @@
+.s1 {
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  background-position: center;
+  background-color: rgb(242 245 249);
+  background-image: url('/public/assets/images/AI2.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+}
+
+.home-right {
+  width: 30%;
+  height: 100vh;
+  box-sizing: border-box;
+  background-image: linear-gradient(
+    to right,
+    rgb(244 247 251),
+    rgb(241 244 248)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

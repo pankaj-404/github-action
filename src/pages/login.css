@@ -46,11 +46,11 @@ a {
   background-position: center;
   position: relative;
   z-index: 1;
-  background-image: url("/public/assets/images/loginbg.png");
+  background-image: url('/public/assets/images/loginbg.png');
 }
 
 .login100-more::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   z-index: -1;
@@ -79,8 +79,8 @@ a {
 .login100-form-title {
   width: 100%;
   display: block;
-  font-family: "Poppins";
-  font-style: "SemiBold";
+  font-family: 'Poppins';
+  font-style: 'SemiBold';
   font-size: 50px;
 
   color: darkgrey;
@@ -115,7 +115,7 @@ a {
 }
 
 .label-input100 {
-  font-family: "poppins";
+  font-family: 'poppins';
   font-size: 18px;
   color: #999999;
   line-height: 1.2;
@@ -138,7 +138,7 @@ a {
   display: block;
   width: 100%;
   background: transparent;
-  font-family: "poppins";
+  font-family: 'poppins';
   font-size: 18px;
   color: #555555;
   line-height: 1.2;
@@ -241,8 +241,8 @@ input.input100 {
 }
 
 .label-checkbox100::before {
-  content: "\f00c";
-  font-family: "poppins";
+  content: '\f00c';
+  font-family: 'poppins';
   font-size: 13px;
   color: transparent;
 
@@ -300,7 +300,7 @@ input.input100 {
   border-radius: 10px;
   background: #6675df;
 
-  font-family: "poppins";
+  font-family: 'poppins';
   font-size: 12px;
   color: #fff;
   line-height: 1.2;
@@ -326,7 +326,7 @@ input.input100 {
   /* border-radius: 10px; */
   /* background: #6675df; */
 
-  font-family: "poppins";
+  font-family: 'poppins';
   font-size: 12px;
   color: white;
   /* border: 1px solid #6675df; */
@@ -354,7 +354,7 @@ input.input100 {
   background: #efeff3;
   border: none;
 
-  font-family: "poppins";
+  font-family: 'poppins';
   font-size: 12px;
   color: rgb(14, 13, 13);
   /* border: 1px solid #6675df; */
@@ -385,7 +385,7 @@ input.input100 {
   /* border-radius: 10px; */
   background: white;
 
-  font-family: "poppins";
+  font-family: 'poppins';
   font-size: 12px;
   color: #6675df;
   /* border: 1px solid #6675df; */
@@ -481,8 +481,8 @@ input.input100 {
 }
 
 .alert-validate::after {
-  content: "\f12a";
-  font-family: "poppins";
+  content: '\f12a';
+  font-family: 'poppins';
   display: block;
   position: absolute;
   z-index: 110;

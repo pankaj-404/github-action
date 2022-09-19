@@ -4,9 +4,15 @@
   "plugins": ["prettier"],
   "env": {
     "browser": true,
-    "es6": true,
+    "es2020": true,
     "node": true,
     "jest": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "rules": {
     "camelcase": 1,
@@ -89,11 +95,5 @@
     "valid-typeof": 1,
     "yoda": [1, "never"],
     "prettier/prettier": "error"
-  },
-  "parser": "@babel/eslint-parser",
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 8
-  },
-  "requireConfigFile": false
+  }
 }

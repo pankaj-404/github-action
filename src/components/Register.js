@@ -20,7 +20,7 @@ const Register = () => {
 
   useEffect(() => {
     countryservice.getCountries().then(data => setCountries(data));
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   const formik = useFormik({
     initialValues: {

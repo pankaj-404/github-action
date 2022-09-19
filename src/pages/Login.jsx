@@ -1,4 +1,3 @@
-import React from 'react';
 import { useRef, useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
@@ -7,10 +6,10 @@ import { InputText } from 'primereact/inputtext';
 import { useFormik } from 'formik';
 import { classNames } from 'primereact/utils';
 import { Password } from 'primereact/password';
-// import axios from "../api/axios";
+// import axios from '../api/axios';
 import './login.css';
 
-// const LOGIN_URL = "/auth";
+// const LOGIN_URL = '/auth';
 
 const Login = ({ authenticate }) => {
   const { setAuth } = useAuth();
@@ -28,10 +27,10 @@ const Login = ({ authenticate }) => {
   const [showMessage, setShowMessage] = useState(false);
   const [formData, setFormData] = useState({});
 
-  //auth button handler
+  // auth button handler
   // const handleLogin = () => {
   //   authenticate();
-  //   navigate("/");
+  //   navigate('/');
   // };
 
   // useEffect(() => {
@@ -39,7 +38,7 @@ const Login = ({ authenticate }) => {
   // }, []);
 
   // useEffect(() => {
-  //   setErrMsg("");
+  //   setErrMsg('');
   // }, [user, pwd]);
 
   const handleSubmit = async e => {
@@ -47,11 +46,11 @@ const Login = ({ authenticate }) => {
 
     try {
       // const response = await axios.post(LOGIN_URL, JSON.stringify({ user, pwd }), {
-      //   headers: { "Content-Type": "application/json" },
+      //   headers: { 'Content-Type': 'application/json' },
       //   withCredentials: true,
       // });
       // console.log(JSON.stringify(response?.data));
-      //console.log(JSON.stringify(response));
+      // console.log(JSON.stringify(response));
       // const accessToken = response?.data?.accessToken;
       const accessToken = 'abcdefghi';
       // const roles = response?.data?.roles;
@@ -80,7 +79,7 @@ const Login = ({ authenticate }) => {
       password: '',
     },
     validate: data => {
-      let errors = {};
+      const errors = {};
 
       if (!data.name) {
         errors.name = 'Name is required.';
@@ -114,12 +113,12 @@ const Login = ({ authenticate }) => {
       <div className="container-login100">
         <div className="wrap-login100">
           <section className="login100-form validate-form text-gray-600">
-            {/* <div className="flex justify-content-center"> */}
+            {/* <div className='flex justify-content-center'> */}
             <div className="card">
               <h5 className="text-center">Login</h5>
               <form onSubmit={handleSubmit} className="p-fluid">
                 <div className="field">
-                  <span className="p-float-label">
+                  <span className="p-float-label mb-5">
                     <InputText
                       id="name"
                       name="name"
@@ -164,18 +163,18 @@ const Login = ({ authenticate }) => {
                   </span>
                   {getFormErrorMessage('password')}
                 </div>
-                <Button type="submit" label="Submit" className="mt-2" />
+                <Button type="submit" label="Submit" className="mt-2 mb-2" />
               </form>
             </div>
             {/* </div> */}
-            <p>
+            <p className="text-center">
               Need an Account?
               <br />
-              <span className="line">
-                <Link to="/register">
+              <div className="line text-center row">
+                <Link to="/register" className=" text-center">
                   <Button>Sign Up</Button>
                 </Link>
-              </span>
+              </div>
             </p>
           </section>
           <div className="login100-more"></div>
