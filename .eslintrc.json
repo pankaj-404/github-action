@@ -1,114 +1,99 @@
 {
-    "root": true,
-    "extends": [
-      "plugin:prettier/recommended",
-      "prettier",
-      "eslint:recommended"
+  "root": true,
+  "extends": ["plugin:prettier/recommended", "prettier", "eslint:recommended"],
+  "plugins": ["prettier"],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "camelcase": 1,
+    "dot-notation": 1,
+    "eqeqeq": [1, "allow-null"],
+    "func-style": [0, "expression"],
+    "no-alert": 1,
+    "no-caller": 1,
+    "no-case-declarations": 1,
+    "no-class-assign": 2,
+    "no-cond-assign": 1,
+    "no-console": 1,
+    "no-const-assign": 2,
+    "no-constant-condition": 1,
+    "no-debugger": 1,
+    "no-delete-var": 2,
+    "no-dupe-args": 2,
+    "no-dupe-class-members": 2,
+    "no-dupe-keys": 2,
+    "no-duplicate-case": 2,
+    "no-empty-character-class": 1,
+    "no-empty-pattern": 1,
+    "no-empty": 1,
+    "no-eval": 2,
+    "no-ex-assign": 1,
+    "no-extra-bind": 1,
+    "no-extra-boolean-cast": 1,
+    "no-fallthrough": 1,
+    "no-floating-decimal": 1,
+    "no-func-assign": 2,
+    "no-implied-eval": 2,
+    "no-invalid-this": 2,
+    "no-irregular-whitespace": 1,
+    "no-labels": [
+      2,
+      {
+        "allowLoop": true,
+        "allowSwitch": true
+      }
     ],
-    "plugins": [
-      "prettier"
+    "no-lone-blocks": 1,
+    "no-lonely-if": 1,
+    "no-negated-in-lhs": 1,
+    "no-new-func": 2,
+    "no-new-object": 1,
+    "no-new-wrappers": 1,
+    "no-obj-calls": 1,
+    "no-octal": 1,
+    "no-param-reassign": 1,
+    "no-redeclare": 2,
+    "no-return-assign": 1,
+    "no-self-compare": 1,
+    "no-sparse-arrays": 2,
+    "no-throw-literal": 1,
+    "no-undef": 2,
+    "no-unexpected-multiline": 1,
+    "no-unneeded-ternary": 1,
+    "no-unreachable": 1,
+    "no-unused-expressions": 1,
+    "no-unused-vars": [
+      1,
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
     ],
-    "env": {
-      "browser": true,
-      "es6": true,
-      "node": true,
-      "jest": true
-    },
-    "rules": {
-      "camelcase": 1,
-      "dot-notation": 1,
-      "eqeqeq": [
-        1,
-        "allow-null"
-      ],
-      "func-style": [
-        0,
-        "expression"
-      ],
-      "no-alert": 1,
-      "no-caller": 1,
-      "no-case-declarations": 1,
-      "no-class-assign": 2,
-      "no-cond-assign": 1,
-      "no-console": 1,
-      "no-const-assign": 2,
-      "no-constant-condition": 1,
-      "no-debugger": 1,
-      "no-delete-var": 2,
-      "no-dupe-args": 2,
-      "no-dupe-class-members": 2,
-      "no-dupe-keys": 2,
-      "no-duplicate-case": 2,
-      "no-empty-character-class": 1,
-      "no-empty-pattern": 1,
-      "no-empty": 1,
-      "no-eval": 2,
-      "no-ex-assign": 1,
-      "no-extra-bind": 1,
-      "no-extra-boolean-cast": 1,
-      "no-fallthrough": 1,
-      "no-floating-decimal": 1,
-      "no-func-assign": 2,
-      "no-implied-eval": 2,
-      "no-invalid-this": 2,
-      "no-irregular-whitespace": 1,
-      "no-labels": [
-        2,
-        {
-          "allowLoop": true,
-          "allowSwitch": true
-        }
-      ],
-      "no-lone-blocks": 1,
-      "no-lonely-if": 1,
-      "no-negated-in-lhs": 1,
-      "no-new-func": 2,
-      "no-new-object": 1,
-      "no-new-wrappers": 1,
-      "no-obj-calls": 1,
-      "no-octal": 1,
-      "no-param-reassign": 1,
-      "no-redeclare": 2,
-      "no-return-assign": 1,
-      "no-self-compare": 1,
-      "no-sparse-arrays": 2,
-      "no-throw-literal": 1,
-      "no-undef": 2,
-      "no-unexpected-multiline": 1,
-      "no-unneeded-ternary": 1,
-      "no-unreachable": 1,
-      "no-unused-expressions": 1,
-      "no-unused-vars": [
-        1,
-        {
-          "argsIgnorePattern": "^_",
-          "varsIgnorePattern": "^_"
-        }
-      ],
-      "no-use-before-define": 2,
-      "no-useless-call": 1,
-      "no-useless-concat": 1,
-      "no-var": 2,
-      "no-void": 1,
-      "no-with": 2,
-      "operator-assignment": [
-        1,
-        "always"
-      ],
-      "padded-blocks": [
-        1,
-        "never"
-      ],
-      "prefer-arrow-callback": 1,
-      "prefer-const": 1,
-      "radix": 1,
-      "spaced-comment": 1,
-      "use-isnan": 1,
-      "valid-typeof": 1,
-      "yoda": [
-        1,
-        "never"
-      ],
-      "prettier/prettier": "error"
-    }
-  }
+    "no-use-before-define": 2,
+    "no-useless-call": 1,
+    "no-useless-concat": 1,
+    "no-var": 2,
+    "no-void": 1,
+    "no-with": 2,
+    "operator-assignment": [1, "always"],
+    "padded-blocks": [1, "never"],
+    "prefer-arrow-callback": 1,
+    "prefer-const": 1,
+    "radix": 1,
+    "spaced-comment": 1,
+    "use-isnan": 1,
+    "valid-typeof": 1,
+    "yoda": [1, "never"],
+    "prettier/prettier": "error"
+  },
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 8
+  },
+  "requireConfigFile": false
+}

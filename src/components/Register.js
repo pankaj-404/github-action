@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { useFormik } from "formik";
-import { InputText } from "primereact/inputtext";
-import { Button } from "primereact/button";
-import { Dropdown } from "primereact/dropdown";
-import { Calendar } from "primereact/calendar";
-import { Password } from "primereact/password";
-import { Checkbox } from "primereact/checkbox";
-import { Dialog } from "primereact/dialog";
-import { Divider } from "primereact/divider";
-import { classNames } from "primereact/utils";
-import { CountryService } from "../utils/CountryService";
-import "./Register.css";
+import React, { useEffect, useState } from 'react';
+import { useFormik } from 'formik';
+import { InputText } from 'primereact/inputtext';
+import { Button } from 'primereact/button';
+import { Dropdown } from 'primereact/dropdown';
+import { Calendar } from 'primereact/calendar';
+import { Password } from 'primereact/password';
+import { Checkbox } from 'primereact/checkbox';
+import { Dialog } from 'primereact/dialog';
+import { Divider } from 'primereact/divider';
+import { classNames } from 'primereact/utils';
+import { CountryService } from '../utils/CountryService';
+import './Register.css';
 
 const Register = () => {
   const [countries, setCountries] = useState([]);
@@ -19,42 +19,44 @@ const Register = () => {
   const countryservice = new CountryService();
 
   useEffect(() => {
-    countryservice.getCountries().then((data) => setCountries(data));
+    countryservice.getCountries().then(data => setCountries(data));
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const formik = useFormik({
     initialValues: {
-      name: "",
-      email: "",
-      password: "",
+      name: '',
+      email: '',
+      password: '',
       date: null,
       country: null,
       accept: false,
     },
-    validate: (data) => {
+    validate: data => {
       let errors = {};
 
       if (!data.name) {
-        errors.name = "Name is required.";
+        errors.name = 'Name is required.';
       }
 
       if (!data.email) {
-        errors.email = "Email is required.";
-      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(data.email)) {
-        errors.email = "Invalid email address. E.g. example@email.com";
+        errors.email = 'Email is required.';
+      } else if (
+        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(data.email)
+      ) {
+        errors.email = 'Invalid email address. E.g. example@email.com';
       }
 
       if (!data.password) {
-        errors.password = "Password is required.";
+        errors.password = 'Password is required.';
       }
 
       if (!data.accept) {
-        errors.accept = "You need to agree to the terms and conditions.";
+        errors.accept = 'You need to agree to the terms and conditions.';
       }
 
       return errors;
     },
-    onSubmit: (data) => {
+    onSubmit: data => {
       setFormData(data);
       setShowMessage(true);
 
@@ -62,14 +64,24 @@ const Register = () => {
     },
   });
 
-  const isFormFieldValid = (name) => !!(formik.touched[name] && formik.errors[name]);
-  const getFormErrorMessage = (name) => {
-    return isFormFieldValid(name) && <small className="p-error">{formik.errors[name]}</small>;
+  const isFormFieldValid = name =>
+    !!(formik.touched[name] && formik.errors[name]);
+  const getFormErrorMessage = name => {
+    return (
+      isFormFieldValid(name) && (
+        <small className="p-error">{formik.errors[name]}</small>
+      )
+    );
   };
 
   const dialogFooter = (
     <div className="flex justify-content-center">
-      <Button label="OK" className="p-button-text" autoFocus onClick={() => setShowMessage(false)} />
+      <Button
+        label="OK"
+        className="p-button-text"
+        autoFocus
+        onClick={() => setShowMessage(false)}
+      />
     </div>
   );
   const passwordHeader = <h6>Pick a password</h6>;
@@ -77,7 +89,7 @@ const Register = () => {
     <React.Fragment>
       <Divider />
       <p className="mt-2">Suggestions</p>
-      <ul className="pl-2 ml-2 mt-0" style={{ lineHeight: "1.5" }}>
+      <ul className="pl-2 ml-2 mt-0" style={{ lineHeight: '1.5' }}>
         <li>At least one lowercase</li>
         <li>At least one uppercase</li>
         <li>At least one numeric</li>
@@ -86,7 +98,11 @@ const Register = () => {
     </React.Fragment>
   );
 
-  const header = <h5 className="text-center text-2xl font-semibold text-blue-600">Register</h5>;
+  const header = (
+    <h5 className="text-center text-2xl font-semibold text-blue-600">
+      Register
+    </h5>
+  );
 
   return (
     <div className="form-demo mt-6 ">
@@ -96,22 +112,29 @@ const Register = () => {
         position="top"
         footer={dialogFooter}
         showHeader={false}
-        breakpoints={{ "960px": "80vw" }}
-        style={{ width: "30vw" }}
+        breakpoints={{ '960px': '80vw' }}
+        style={{ width: '30vw' }}
       >
         <div className="flex align-items-center flex-column pt-6 px-3">
-          <i className="pi pi-check-circle" style={{ fontSize: "5rem", color: "var(--green-500)" }}></i>
+          <i
+            className="pi pi-check-circle"
+            style={{ fontSize: '5rem', color: 'var(--green-500)' }}
+          ></i>
           <h5>Registration Successful!</h5>
-          <p style={{ lineHeight: 1.5, textIndent: "1rem" }}>
-            Your account is registered under name <b>{formData.name}</b> ; it'll be valid next 30 days without
-            activation. Please check <b>{formData.email}</b> for activation instructions.
+          <p style={{ lineHeight: 1.5, textIndent: '1rem' }}>
+            Your account is registered under name <b>{formData.name}</b> ; it'll
+            be valid next 30 days without activation. Please check{' '}
+            <b>{formData.email}</b> for activation instructions.
           </p>
         </div>
       </Dialog>
 
       <div className="flex justify-content-center">
         <div className="card ">
-          <form onSubmit={formik.handleSubmit} className="p-fluid border-solid border-200 border-round-xl p-5">
+          <form
+            onSubmit={formik.handleSubmit}
+            className="p-fluid border-solid border-200 border-round-xl p-5"
+          >
             {header}
             <div className="field">
               <span className="p-float-label">
@@ -121,13 +144,20 @@ const Register = () => {
                   value={formik.values.name}
                   onChange={formik.handleChange}
                   autoFocus
-                  className={classNames({ "p-invalid": isFormFieldValid("name") })}
+                  className={classNames({
+                    'p-invalid': isFormFieldValid('name'),
+                  })}
                 />
-                <label htmlFor="name" className={classNames({ "p-error": isFormFieldValid("name") })}>
+                <label
+                  htmlFor="name"
+                  className={classNames({
+                    'p-error': isFormFieldValid('name'),
+                  })}
+                >
                   Name*
                 </label>
               </span>
-              {getFormErrorMessage("name")}
+              {getFormErrorMessage('name')}
             </div>
             <div className="field">
               <span className="p-float-label p-input-icon-right">
@@ -137,13 +167,20 @@ const Register = () => {
                   name="email"
                   value={formik.values.email}
                   onChange={formik.handleChange}
-                  className={classNames({ "p-invalid": isFormFieldValid("email") })}
+                  className={classNames({
+                    'p-invalid': isFormFieldValid('email'),
+                  })}
                 />
-                <label htmlFor="email" className={classNames({ "p-error": isFormFieldValid("email") })}>
+                <label
+                  htmlFor="email"
+                  className={classNames({
+                    'p-error': isFormFieldValid('email'),
+                  })}
+                >
                   Email*
                 </label>
               </span>
-              {getFormErrorMessage("email")}
+              {getFormErrorMessage('email')}
             </div>
             <div className="field">
               <span className="p-float-label">
@@ -153,15 +190,22 @@ const Register = () => {
                   value={formik.values.password}
                   onChange={formik.handleChange}
                   toggleMask
-                  className={classNames({ "p-invalid": isFormFieldValid("password") })}
+                  className={classNames({
+                    'p-invalid': isFormFieldValid('password'),
+                  })}
                   header={passwordHeader}
                   footer={passwordFooter}
                 />
-                <label htmlFor="password" className={classNames({ "p-error": isFormFieldValid("password") })}>
+                <label
+                  htmlFor="password"
+                  className={classNames({
+                    'p-error': isFormFieldValid('password'),
+                  })}
+                >
                   Password*
                 </label>
               </span>
-              {getFormErrorMessage("password")}
+              {getFormErrorMessage('password')}
             </div>
             <div className="field">
               <span className="p-float-label">
@@ -196,9 +240,16 @@ const Register = () => {
                 name="accept"
                 checked={formik.values.accept}
                 onChange={formik.handleChange}
-                className={classNames({ "p-invalid": isFormFieldValid("accept") })}
+                className={classNames({
+                  'p-invalid': isFormFieldValid('accept'),
+                })}
               />
-              <label htmlFor="accept" className={classNames({ "p-error": isFormFieldValid("accept") })}>
+              <label
+                htmlFor="accept"
+                className={classNames({
+                  'p-error': isFormFieldValid('accept'),
+                })}
+              >
                 I agree to the terms and conditions*
               </label>
             </div>

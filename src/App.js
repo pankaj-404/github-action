@@ -1,26 +1,26 @@
-import React, { useState, useEffect } from "react";
-import { Route, Routes, Outlet } from "react-router-dom"; //Outlet,
-import Layout from "./components/Layout";
-import Unauthorized from "./components/Unauthorized";
-import Navbar from "./components/Navbar";
-import Register from "./components/Register";
-import RequireAuth from "./components/RequiredAuth";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import NotFound from "./pages/NotFound";
-import Page1 from "./pages/Page1";
-import Page2 from "./pages/Page2";
+import React, { useState, useEffect } from 'react';
+import { Route, Routes, Outlet } from 'react-router-dom'; //Outlet,
+import Layout from './components/Layout';
+import Unauthorized from './components/Unauthorized';
+import Navbar from './components/Navbar';
+import Register from './components/Register';
+import RequireAuth from './components/RequiredAuth';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import NotFound from './pages/NotFound';
+import Page1 from './pages/Page1';
+import Page2 from './pages/Page2';
 
 function App() {
   const [auth, setAuth] = useState(null);
 
   useEffect(() => {
-    let user = localStorage.getItem("user");
+    let user = localStorage.getItem('user');
     user && JSON.parse(user) ? setAuth(true) : setAuth(false);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("user", auth);
+    localStorage.setItem('user', auth);
   }, [auth]);
 
   const LayoutWithNavbar = () => {
