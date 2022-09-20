@@ -30,8 +30,6 @@ const Login = () => {
       //   headers: { 'Content-Type': 'application/json' },
       //   withCredentials: true,
       // });
-      // console.log(JSON.stringify(response?.data));
-      // console.log(JSON.stringify(response));
       // const accessToken = response?.data?.accessToken;
       const accessToken = 'abcdefghi';
       // const roles = response?.data?.roles;

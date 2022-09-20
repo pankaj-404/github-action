@@ -3,6 +3,6 @@ export class CountryService {
     return fetch(process.env.PUBLIC_URL + '/assets/data/countries.json')
       .then(res => res.json())
       .then(d => d.data)
-      .catch(e => console.error('error==>', e));
+      .catch(e => e);
   }
 }
