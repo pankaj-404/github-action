@@ -26,3 +26,33 @@
   justify-content: center;
   align-items: center;
 }
+
+/* .previousbutton {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  height: 40px;
+  background: white;
+  font-family: 'poppins' !important;
+  font-size: medium;
+  color: #6675df;
+  border: 1px solid rgb(33, 150, 243);
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}*/
+
+.previousbutton:hover {
+  background: #0d89ec;
+  color: #fff;
+  border-color: #0d89ec;
+}

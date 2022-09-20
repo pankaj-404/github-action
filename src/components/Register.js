@@ -99,9 +99,7 @@ const Register = () => {
   );
 
   const header = (
-    <h5 className="text-center text-2xl font-semibold text-blue-600">
-      Register
-    </h5>
+    <h2 className="text-center mb-5 mt-0 text-primary">Register</h2>
   );
 
   return (

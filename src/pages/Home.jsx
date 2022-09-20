@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
-function Home(props) {
+function Home() {
   const lendingPageMenuItems = [
     {
       label: 'Duplicate Inventory Reduction',
@@ -24,12 +24,13 @@ function Home(props) {
       <div className="s1"></div>
       <div className="home-right">
         {lendingPageMenuItems.map(menu => (
-          <Link to={menu.to} key={menu.to}>
-            <Button
-              className="previousbutton my-3 homeButtons"
-              label={menu.label}
-              style={{ width: '100%' }}
-            />
+          <Link
+            to={menu.to}
+            key={menu.to}
+            className="previousbutton my-3 homeButtons"
+            style={{ width: '95%' }}
+          >
+            {menu.label}
           </Link>
         ))}
       </div>

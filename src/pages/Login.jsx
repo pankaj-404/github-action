@@ -6,12 +6,11 @@ import { InputText } from 'primereact/inputtext';
 import { useFormik } from 'formik';
 import { classNames } from 'primereact/utils';
 import { Password } from 'primereact/password';
-// import axios from '../api/axios';
 import './login.css';
 
 // const LOGIN_URL = '/auth';
 
-const Login = ({ authenticate }) => {
+const Login = () => {
   const { setAuth } = useAuth();
 
   const navigate = useNavigate();
@@ -24,26 +23,8 @@ const Login = ({ authenticate }) => {
   const [user, setUser] = useState('');
   const [pwd, setPwd] = useState('');
   const [errMsg, setErrMsg] = useState('');
-  const [showMessage, setShowMessage] = useState(false);
-  const [formData, setFormData] = useState({});
 
-  // auth button handler
-  // const handleLogin = () => {
-  //   authenticate();
-  //   navigate('/');
-  // };
-
-  // useEffect(() => {
-  //   userRef.current.focus();
-  // }, []);
-
-  // useEffect(() => {
-  //   setErrMsg('');
-  // }, [user, pwd]);
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-
+  const handleSubmit = () => {
     try {
       // const response = await axios.post(LOGIN_URL, JSON.stringify({ user, pwd }), {
       //   headers: { 'Content-Type': 'application/json' },
@@ -80,26 +61,23 @@ const Login = ({ authenticate }) => {
     },
     validate: data => {
       const errors = {};
-
       if (!data.name) {
         errors.name = 'Name is required.';
       }
-
       if (!data.password) {
         errors.password = 'Password is required.';
       }
-
       return errors;
     },
-    onSubmit: data => {
-      setFormData(data);
-      setShowMessage(true);
+    onSubmit: () => {
+      handleSubmit();
       formik.resetForm();
     },
   });
 
   const isFormFieldValid = name =>
     !!(formik.touched[name] && formik.errors[name]);
+
   const getFormErrorMessage = name => {
     return (
       isFormFieldValid(name) && (
@@ -115,8 +93,8 @@ const Login = ({ authenticate }) => {
           <section className="login100-form validate-form text-gray-600">
             {/* <div className='flex justify-content-center'> */}
             <div className="card">
-              <h5 className="text-center">Login</h5>
-              <form onSubmit={handleSubmit} className="p-fluid">
+              <h2 className="text-center mb-5 text-primary">Login</h2>
+              <form onSubmit={formik.handleSubmit} className="p-fluid">
                 <div className="field">
                   <span className="p-float-label mb-5">
                     <InputText
@@ -166,13 +144,17 @@ const Login = ({ authenticate }) => {
                 <Button type="submit" label="Submit" className="mt-2 mb-2" />
               </form>
             </div>
+            {errMsg && <div className="">errMsg</div>}
             {/* </div> */}
             <p className="text-center">
               Need an Account?
               <br />
               <div className="line text-center row">
-                <Link to="/register" className=" text-center">
-                  <Button>Sign Up</Button>
+                <Link
+                  to="/register"
+                  className=" text-center mt-2 previousbutton"
+                >
+                  Sign Up
                 </Link>
               </div>
             </p>
