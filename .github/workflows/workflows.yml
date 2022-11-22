@@ -13,6 +13,12 @@ jobs:
         node-version: [14.x]
 
     steps:
+      - name: Testing secrets
+        run: |
+          echo "$DEVOPS"
+        env: 
+          DEVOPS: ${{ secrets.SAMPLE_URL }}
+          
       - name: Checkout
         uses: actions/checkout@v1
 
